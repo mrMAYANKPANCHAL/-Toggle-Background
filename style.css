@@ -1,0 +1,106 @@
+body{
+    font-family: Arial;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:0.5s;
+    background:#f4f4f4;
+    overflow:hidden;
+}
+
+/* DARK MODE */
+
+.dark{
+    background: radial-gradient(circle at bottom, #1b2735 0%, #090a0f 100%);
+    color:white;
+}
+
+/* TITLE */
+
+h2{
+    margin-bottom:20px;
+    z-index:2;
+}
+
+/* SWITCH */
+
+.switch{
+    position:relative;
+    width:60px;
+    height:34px;
+    z-index:2;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider{
+    position:absolute;
+    cursor:pointer;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#ccc;
+    transition:0.4s;
+    border-radius:34px;
+}
+
+.slider:before{
+    position:absolute;
+    content:"";
+    height:26px;
+    width:26px;
+    left:4px;
+    bottom:4px;
+    background:white;
+    transition:0.4s;
+    border-radius:50%;
+}
+
+input:checked + .slider{
+    background:#4CAF50;
+}
+
+input:checked + .slider:before{
+    transform:translateX(26px);
+}
+
+/* STARS */
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:transparent;
+    z-index:1;
+}
+
+.stars::after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    box-shadow:
+        50px 100px white,
+        150px 200px white,
+        300px 50px white,
+        400px 300px white,
+        600px 150px white,
+        800px 250px white,
+        1000px 100px white,
+        1200px 200px white,
+        1400px 50px white;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
